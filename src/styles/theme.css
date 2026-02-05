@@ -1,0 +1,49 @@
+:root{
+    /* Neutrals (light) */
+    --md-surface: #fdfcfd;
+    --md-surface-container: #f3f4f6;
+    --md-surface-container-high: #eceef2;
+    --md-on-surface: #1b1b1f;
+    --md-on-surface-variant: #44474f;
+    --md-outline: #74777f;
+
+    /* Accent (keep subtle, can change later) */
+    --md-primary: #3b82f6;
+    --md-on-primary: #ffffff;
+
+    /* Elevation via shadow (web flavor) */
+    --md-elev-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.10);
+    --md-elev-2: 0 4px 10px rgba(0,0,0,.10);
+    --md-elev-3: 0 10px 26px rgba(0,0,0,.14);
+
+    --md-radius-sm: 12px;
+    --md-radius: 20px;
+
+    /* Warning (M3-style: container + on-container) */
+    --md-warning-container: #fff4cc;
+    --md-on-warning-container: #2a1f00;
+    --md-warning-outline: #e2b400;
+}
+
+[data-theme="dark"]{
+    /* Neutrals (dark, GRAY not blue) */
+    --md-surface: #111114;
+    --md-surface-container: #1a1b1f;
+    --md-surface-container-high: #23242a;
+    --md-on-surface: #e6e6ea;
+    --md-on-surface-variant: #b6b7bf;
+    --md-outline: #8d8f99;
+
+    /* Accent can stay the same or be slightly softer */
+    --md-primary: #7fb0ff;
+    --md-on-primary: #0b1220;
+
+    --md-elev-1: 0 2px 8px rgba(0,0,0,.45);
+    --md-elev-2: 0 8px 22px rgba(0,0,0,.55);
+    --md-elev-3: 0 14px 40px rgba(0,0,0,.65);
+
+    /* Warning (dark) */
+    --md-warning-container: rgba(255, 205, 58, 0.14);
+    --md-on-warning-container: #ffe39a;
+    --md-warning-outline: rgba(255, 205, 58, 0.40);
+}
