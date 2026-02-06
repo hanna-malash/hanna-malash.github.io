@@ -67,3 +67,8 @@ select{
     box-shadow: var(--md-elev-1);
     padding: 16px;
 }
+.nav-mobile{ display:none; }
+@media (max-width: 860px){
+    .nav-desktop{ display:none !important; }
+    .nav-mobile{ display:block; }
+}
