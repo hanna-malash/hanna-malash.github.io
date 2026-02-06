@@ -8,6 +8,13 @@ export const translations = {
         language: "Language",
         light: "Light",
         dark: "Dark",
+        navHome: "Home",
+        navAbout: "About",
+        navProjects: "Projects",
+        navExperience: "Experience",
+        navContact: "Contact",
+        menu: "Menu",
+        close: "Close",
     },
     ru: {
         title: "Привет",
@@ -18,5 +25,13 @@ export const translations = {
         language: "Язык",
         light: "Светлая",
         dark: "Тёмная",
+        navHome: "Главная",
+        navAbout: "Обо мне",
+        navProjects: "Проекты",
+        navExperience: "Опыт",
+        navContact: "Контакты",
+        menu: "Меню",
+        close: "Закрыть",
+
     },
 }
