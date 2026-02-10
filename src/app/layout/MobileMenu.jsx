@@ -1,6 +1,6 @@
 import React from "react"
 import { routes } from "../routing/routes"
-import { useI18n } from "../providers/I18nProvider"
+import { useI18n } from "../providers/I18nContext"
 import { IconButton } from "../../shared/ui/IconButton"
 import { NavLink } from "../../shared/ui/NavLink"
 
