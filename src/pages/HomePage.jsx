@@ -1,4 +1,4 @@
-import { useI18n } from "../app/providers/I18nProvider"
+import { useI18n } from "../app/providers/I18nContext"
 
 export function HomePage() {
     const { t } = useI18n()

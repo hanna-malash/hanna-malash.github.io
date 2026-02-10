@@ -72,3 +72,7 @@ select{
     .nav-desktop{ display:none !important; }
     .nav-mobile{ display:block; }
 }
+@media (max-width: 860px){
+    .container{ padding: 18px; }
+    h1{ font-size: 30px; }
+}
