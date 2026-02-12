@@ -1,16 +1,201 @@
-# React + Vite
+# Hanna Malash Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-Currently, two official plugins are available:
+A personal portfolio website built with React + Vite and deployed on GitHub Pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live Demo](https://hanna-malash.github.io) | [Repository](https://github.com/hanna-malash/hanna-malash.github.io)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Local Development](#local-development)
+- [Deployment](#deployment)
+- [License](#license)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+- **Responsive Design**: Works great on desktop and mobile devices
+- **Light/Dark Theme**: Custom theme system with preference storage
+- **Multi-language Support**: English and Russian
+- **Modular Architecture**: Well-organized components and utilities
+- **Projects Page**: Links to GitHub and downloadable PDF
+- **Mobile Menu**: Easy navigation on small screens
+- **Modern Stack**: React 19, HashRouter for GitHub Pages
+
+---
+
+## Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| React | ^19.2.0 | UI Framework |
+| Vite | ^7.2.4 | Build tool and dev server |
+| React Router | ^7.13.0 | Routing (HashRouter) |
+| ESLint | ^9.39.1 | Code quality |
+| gh-pages | ^6.3.0 | GitHub Pages deployment |
+
+---
+
+## Project Structure
+
+```
+hanna-malash.github.io/
+├── src/
+│   ├── app/                    # App shell, routing, providers
+│   │   ├── App.jsx
+│   │   ├── layout/
+│   │   │   ├── AppShell.jsx   # Main layout
+│   │   │   ├── TopBar.jsx     # Top navigation
+│   │   │   └── MobileMenu.jsx # Mobile menu
+│   │   ├── providers/
+│   │   │   ├── I18nProvider.jsx    # Language support
+│   │   │   └── ThemeProvider.jsx   # Theme management
+│   │   └── routing/
+│   │       └── routes.js       # Route configuration
+│   ├── pages/                  # Page components
+│   │   ├── HomePage.jsx
+│   │   ├── AboutPage.jsx
+│   │   ├── ExperiencePage.jsx
+│   │   ├── ProjectsPage.jsx
+│   │   └── ContactPage.jsx
+│   ├── shared/                 # Reusable components and utilities
+│   │   ├── i18n/
+│   │   │   └── translations.js # Language files
+│   │   └── ui/
+│   │       ├── Card.jsx
+│   │       ├── IconButton.jsx
+│   │       ├── NavLink.jsx
+│   │       └── Toggle.jsx
+│   ├── styles/                 # Global styles
+│   │   ├── globals.css
+│   │   └── theme.css
+│   ├── main.jsx               # Entry point
+│   └── index.css              # Base styles
+├── public/                     # Static files
+│   └── vite.svg
+├── package.json               # Dependencies and scripts
+├── vite.config.js            # Vite config
+├── eslint.config.js          # ESLint config
+├── index.html                # HTML template
+└── README.md
+```
+
+---
+
+## Requirements
+
+Before you start, make sure you have:
+
+- **Node.js** ≥ 18.0.0
+- **npm** ≥ 9.0.0 (or yarn/pnpm)
+- **Git**
+
+Check your versions:
+```bash
+node --version
+npm --version
+```
+
+---
+
+## Local Development
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/hanna-malash/hanna-malash.github.io.git
+cd hanna-malash.github.io
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the dev server
+
+```bash
+npm run dev
+```
+
+Open your browser and go to `http://localhost:5173`
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+The files will be in the `dist/` folder.
+
+### 5. Check code quality
+
+```bash
+npm run lint
+```
+
+---
+
+## Deployment
+
+This project uses GitHub Pages with HashRouter for proper routing.
+
+### Deploy to GitHub Pages
+
+After merging changes to `main`, run:
+
+```bash
+git switch main
+git pull
+npm run deploy
+```
+
+**What `npm run deploy` does:**
+1. Runs `npm run build` (creates the `dist/` folder)
+2. Pushes the build to the `gh-pages` branch
+3. GitHub Pages automatically deploys your site
+
+### GitHub Settings
+
+Make sure your repository settings (Settings, Pages) have:
+- **Source**: Deploy from branch
+- **Branch**: `gh-pages` / `/(root)`
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Author
+
+**Hanna Malash**
+
+- GitHub: [@hanna-malash](https://github.com/hanna-malash)
+- Portfolio: [hanna-malash.github.io](https://hanna-malash.github.io)
+
+---
+
+## Developer Notes
+
+- **HashRouter** is used for GitHub Pages compatibility (no server redirects needed)
+- **Custom Theme System**: Theme management via Context API, no extra libraries
+- **i18n Provider**: Simple custom translation system
+- **Pure CSS**: No preprocessors, fast and simple
+
+---
+
+**Last updated**: February 2026
