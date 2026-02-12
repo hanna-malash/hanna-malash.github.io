@@ -1,5 +1,5 @@
 import { useI18n } from "../app/providers/I18nContext"
-import { aboutContent } from "./about/aboutContent"
+import { translations } from "../shared/i18n/translations"
 import { Chip } from "../shared/ui/Chip"
 import { SectionCard } from "../shared/ui/SectionCard"
 
@@ -32,7 +32,7 @@ function TimelineBlock({ item }) {
 
 export function AboutPage() {
     const { lang } = useI18n()
-    const c = aboutContent[lang] || aboutContent.en
+    const c = translations[lang]?.about || translations.en.about
 
     return (
         <div style={{ paddingTop: 24 }}>

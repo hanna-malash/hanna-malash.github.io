@@ -5,15 +5,25 @@ import { MobileMenu } from "./MobileMenu"
 
 export function AppShell() {
     const [isMobileOpen, setIsMobileOpen] = React.useState(false)
+
     return (
-        <div className="container">
-            <TopBar onOpenMobileMenu={() => setIsMobileOpen(true)} />
-            <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
-            <Outlet />
-            <div style={{ height: 28 }} />
-            <div style={{ fontSize: 12, color: "var(--md-on-surface-variant)" }}>
-                © {new Date().getFullYear()} Hanna Malash
+        <div className="app-root">
+            <div className="app-header">
+                <div className="container">
+                    <TopBar onOpenMobileMenu={() => setIsMobileOpen(true)} />
+                </div>
             </div>
+            <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
+
+            <main className="app-content">
+                <div className="container">
+                    <Outlet />
+                </div>
+            </main>
+
+            <footer className="app-footer">
+                © {new Date().getFullYear()} Hanna Malash
+            </footer>
         </div>
     )
 }
