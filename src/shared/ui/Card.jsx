@@ -1,12 +1,6 @@
-export function Card({ children }) {
+export function Card({ children, className = "", style }) {
     return (
-        <div style={{
-            background: "var(--surface)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius)",
-            boxShadow: "var(--shadow)",
-            padding: 18,
-        }}>
+        <div className={`card ${className}`.trim()} style={style}>
             {children}
         </div>
     )
