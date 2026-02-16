@@ -1,5 +1,5 @@
 :root{
-    /* Neutrals (light) */
+    /* ===== Neutrals (light) ===== */
     --md-surface: #fdfcfd;
     --md-surface-container: #f3f4f6;
     --md-surface-container-high: #eceef2;
@@ -7,11 +7,11 @@
     --md-on-surface-variant: #44474f;
     --md-outline: #74777f;
 
-    /* Accent (keep subtle, can change later) */
+    /* ===== Accent ===== */
     --md-primary: #3b82f6;
     --md-on-primary: #ffffff;
 
-    /* Elevation via shadow (web flavor) */
+    /* ===== Elevation ===== */
     --md-elev-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.10);
     --md-elev-2: 0 4px 10px rgba(0,0,0,.10);
     --md-elev-3: 0 10px 26px rgba(0,0,0,.14);
@@ -19,14 +19,35 @@
     --md-radius-sm: 12px;
     --md-radius: 20px;
 
-    /* Warning (M3-style: container + on-container) */
+    /* ===== Warning ===== */
     --md-warning-container: #fff4cc;
     --md-on-warning-container: #2a1f00;
     --md-warning-outline: #e2b400;
+
+    /* ===================================================== */
+    /* ===== DESIGN ALIASES (UNIFIED SYSTEM TOKENS) ======= */
+    /* ===================================================== */
+
+    --surface: var(--md-surface);
+    --surface-1: var(--md-surface);
+    --surface-2: var(--md-surface-container);
+
+    --text: var(--md-on-surface);
+    --text-muted: var(--md-on-surface-variant);
+
+    --radius-sm: var(--md-radius-sm);
+    --radius: var(--md-radius);
+
+    --shadow-1: var(--md-elev-1);
+    --shadow-2: var(--md-elev-2);
+    --shadow-3: var(--md-elev-3);
+
+    --border: color-mix(in srgb, var(--md-outline) 28%, transparent);
+    --border-strong: color-mix(in srgb, var(--md-outline) 45%, transparent);
 }
 
 [data-theme="dark"]{
-    /* Neutrals (dark, GRAY not blue) */
+    /* ===== Neutrals (dark) ===== */
     --md-surface: #111114;
     --md-surface-container: #1a1b1f;
     --md-surface-container-high: #23242a;
@@ -34,7 +55,7 @@
     --md-on-surface-variant: #b6b7bf;
     --md-outline: #8d8f99;
 
-    /* Accent can stay the same or be slightly softer */
+    /* ===== Accent ===== */
     --md-primary: #7fb0ff;
     --md-on-primary: #0b1220;
 
@@ -42,8 +63,26 @@
     --md-elev-2: 0 8px 22px rgba(0,0,0,.55);
     --md-elev-3: 0 14px 40px rgba(0,0,0,.65);
 
-    /* Warning (dark) */
+    /* ===== Warning ===== */
     --md-warning-container: rgba(255, 205, 58, 0.14);
     --md-on-warning-container: #ffe39a;
     --md-warning-outline: rgba(255, 205, 58, 0.40);
+
+    /* ===== Aliases (dark) ===== */
+    --surface: var(--md-surface);
+    --surface-1: var(--md-surface);
+    --surface-2: var(--md-surface-container);
+
+    --text: var(--md-on-surface);
+    --text-muted: var(--md-on-surface-variant);
+
+    --radius-sm: var(--md-radius-sm);
+    --radius: var(--md-radius);
+
+    --shadow-1: var(--md-elev-1);
+    --shadow-2: var(--md-elev-2);
+    --shadow-3: var(--md-elev-3);
+
+    --border: color-mix(in srgb, var(--md-outline) 28%, transparent);
+    --border-strong: color-mix(in srgb, var(--md-outline) 45%, transparent);
 }
