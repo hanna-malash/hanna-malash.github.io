@@ -1,72 +1,76 @@
-import React, { useLayoutEffect, useMemo, useRef, useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import React, {
+    useRef,
+    useState,
+    useLayoutEffect,
+    useCallback,
+} from "react"
+import { NavLink, useLocation } from "react-router-dom"
 
-export function NavIsland({ items, measureKey }) {
+export function NavIsland({ routes, renderLabel }) {
     const location = useLocation()
-    const navigate = useNavigate()
-
     const containerRef = useRef(null)
     const itemRefs = useRef({})
 
-    const [indicator, setIndicator] = useState({ x: 0, w: 0, ready: false })
+    const [indicator, setIndicator] = useState({
+        left: 0,
+        width: 0,
+    })
 
-    const activePath = useMemo(() => {
-        const found = items.find((i) => i.path === location.pathname)
-        if (found) return found.path
-        return items.length > 0 ? items[0].path : "/"
-    }, [location.pathname, items])
+    const activeRoute = routes.find((r) =>
+        location.pathname === r.path
+    )
 
-    function measure() {
+    const measure = useCallback(() => {
+        if (!activeRoute) return
         const container = containerRef.current
-        const activeEl = itemRefs.current[activePath]
-        if (!container || !activeEl) {
-            setIndicator({ x: 0, w: 0, ready: false })
-            return
-        }
-        const c = container.getBoundingClientRect()
-        const r = activeEl.getBoundingClientRect()
-        const x = Math.max(0, Math.round(r.left - c.left))
-        const w = Math.max(0, Math.round(r.width))
-        setIndicator({ x, w, ready: w > 0 })
-    }
+        const activeEl = itemRefs.current[activeRoute.key]
+
+        if (!container || !activeEl) return
+
+        const containerRect = container.getBoundingClientRect()
+        const activeRect = activeEl.getBoundingClientRect()
+
+        setIndicator({
+            left: activeRect.left - containerRect.left,
+            width: activeRect.width,
+        })
+    }, [activeRoute])
 
     useLayoutEffect(() => {
-        const raf = requestAnimationFrame(() => measure())
-        return () => cancelAnimationFrame(raf)
-    }, [activePath, measureKey])
+        measure()
+    }, [measure])
 
     useLayoutEffect(() => {
-        function onResize() { measure() }
-        window.addEventListener("resize", onResize)
-        return () => window.removeEventListener("resize", onResize)
-    }, [activePath, measureKey])
+        window.addEventListener("resize", measure)
+        return () => window.removeEventListener("resize", measure)
+    }, [measure])
 
     return (
-        <div className="nav-island" ref={containerRef}>
+        <div ref={containerRef} className="nav-island">
+            {routes.map((r) => {
+                const isActive = location.pathname === r.path
+
+                return (
+                    <NavLink
+                        key={r.key}
+                        to={r.path}
+                        ref={(el) => (itemRefs.current[r.key] = el)}
+                        className={`nav-island__item ${
+                            isActive ? "is-active" : ""
+                        }`}
+                    >
+                        {renderLabel(r)}
+                    </NavLink>
+                )
+            })}
+
             <div
                 className="nav-island__indicator"
                 style={{
-                    width: indicator.w ? `${indicator.w}px` : "0px",
-                    transform: `translateX(${indicator.x}px)`,
-                    opacity: indicator.ready ? 1 : 0,
+                    transform: `translateX(${indicator.left}px)`,
+                    width: indicator.width,
                 }}
-                aria-hidden="true"
             />
-            {items.map((it) => {
-                const isActive = it.path === activePath
-                return (
-                    <button
-                        key={it.key}
-                        type="button"
-                        className={`nav-island__item${isActive ? " is-active" : ""}`}
-                        ref={(el) => { if (el) itemRefs.current[it.path] = el }}
-                        onClick={() => navigate(it.path)}
-                        aria-current={isActive ? "page" : undefined}
-                    >
-                        {it.label}
-                    </button>
-                )
-            })}
         </div>
     )
 }
