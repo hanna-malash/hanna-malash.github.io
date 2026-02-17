@@ -32,6 +32,11 @@ body{
     align-items:center;
     flex-wrap: wrap;
 }
+h1{
+    margin:0;
+    font-size: 34px;
+    letter-spacing: -0.02em;
+}
 p{
     margin:0;
     color: var(--md-on-surface-variant);
@@ -61,50 +66,46 @@ select{
 @media (max-width: 860px){
     .nav-desktop{ display:none !important; }
     .nav-mobile{ display:block; }
+    /* mobile: keep header clean -> toggles go to drawer */
+    .controls > :not(.nav-mobile){ display:none !important; }
 }
 @media (max-width: 860px){
     .container{ padding: 18px; }
+    h1{ font-size: 30px; }
 }
 
 /* ===== Layout structure: Sticky footer ===== */
-
 .app-root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
-
 .app-header {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-
 .app-header .container {
     width: 100%;
     padding-top: 8px;
     padding-bottom: 8px;
 }
-
 .app-content {
     flex: 1;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-
 .app-content .container {
     width: 100%;
     padding-top: 0;
 }
-
 .app-footer {
     text-align: center;
     padding: 16px 24px;
     font-size: 12px;
     color: var(--md-on-surface-variant);
 }
-
 @media (max-width: 860px) {
     .app-footer {
         padding: 12px 18px;
@@ -112,12 +113,12 @@ select{
     }
 }
 
-/* ===== Primitives: spacing + typography + variants ===== */
-
+/* stack helpers */
 .stack{ display:flex; flex-direction: column; }
 .stack-8{ gap: 8px; }
 .stack-24{ gap: 24px; }
 
+/* optional: keep h1 styling consistent even when className="h1" */
 .h1{
     margin:0;
     font-size: 34px;
@@ -127,6 +128,7 @@ select{
     .h1{ font-size: 30px; }
 }
 
+/* warning variant for Card */
 .card--warning{
     background: var(--md-warning-container);
     color: var(--md-on-warning-container);
@@ -135,4 +137,106 @@ select{
 .card--warning p{
     color: var(--md-on-warning-container);
     opacity: 0.9;
+}
+
+/* ===== Nav island (desktop) ===== */
+.nav-desktop{ display:flex; align-items:center; }
+.nav-island{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: var(--md-surface);
+    border: 1px solid color-mix(in srgb, var(--md-outline) 28%, transparent);
+    border-radius: var(--md-radius);
+    box-shadow: var(--md-elev-1);
+}
+.nav-island__item{
+    position: relative;
+    z-index: 1;
+    border: 0;
+    background: transparent;
+    color: var(--md-on-surface-variant);
+    height: 36px;
+    padding: 0 12px;
+    border-radius: calc(var(--md-radius) - 6px);
+    font: inherit;
+    cursor: pointer;
+    transition: color .15s ease;
+}
+.nav-island__item.is-active{ color: var(--md-on-surface); }
+.nav-island__indicator{
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 0; /* IMPORTANT: offsetLeft already includes island padding */
+    border-radius: calc(var(--md-radius) - 6px);
+    background: color-mix(in srgb, var(--md-primary) 14%, var(--md-surface));
+    border: 1px solid color-mix(in srgb, var(--md-primary) 25%, transparent);
+    transition: transform .18s ease, width .18s ease;
+    will-change: transform, width;
+}
+
+/* ===== Drawer (mobile menu) ===== */
+.drawer{ position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+.drawer.is-open{ pointer-events: auto; }
+.drawer__backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    transition: opacity .18s ease;
+}
+.drawer.is-open .drawer__backdrop{ opacity: 1; }
+.drawer__panel{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(320px, 86vw);
+    background: var(--md-surface);
+    color: var(--md-on-surface);
+    border-left: 1px solid color-mix(in srgb, var(--md-outline) 28%, transparent);
+    box-shadow: var(--md-elev-3);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transform: translateX(12px);
+    opacity: 0;
+    transition: transform .18s ease, opacity .18s ease;
+}
+.drawer.is-open .drawer__panel{
+    transform: translateX(0);
+    opacity: 1;
+}
+.drawer__top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+}
+.drawer__title{ font-weight: 700; letter-spacing: 0.2px; }
+.drawer__nav{
+    display:flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.drawer__link{
+    height: 44px;
+    text-align: left;
+    padding: 0 12px;
+    border-radius: var(--md-radius);
+    border: 1px solid color-mix(in srgb, var(--md-outline) 18%, transparent);
+    background: color-mix(in srgb, var(--md-surface-container) 70%, var(--md-surface));
+    color: var(--md-on-surface);
+    font: inherit;
+    cursor: pointer;
+}
+.drawer__link:active{ transform: translateY(1px); }
+.drawer__section{
+    display:flex;
+    flex-direction: column;
+    gap: 8px;
 }
