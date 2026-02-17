@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# accidental local files
+hanna-malash.github.io@0.0.0
+npm
+vite
