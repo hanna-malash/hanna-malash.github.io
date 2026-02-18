@@ -5,23 +5,21 @@ import { useTheme } from "../providers/ThemeContext"
 import { Toggle } from "../../shared/ui/Toggle"
 import { IconButton } from "../../shared/ui/IconButton"
 import { NavIsland } from "../../shared/ui/NavIsland"
+import { ThemeSwitch } from "../../shared/ui/ThemeSwitch"
 
 export function TopBar({ onOpenMobileMenu }) {
     const { lang, setLang, t } = useI18n()
     const { theme, setTheme } = useTheme()
 
-    const items = routes.map((r) => ({
-        key: r.key,
-        path: r.path,
-        label: t(r.labelKey),
-    }))
-
     return (
         <div className="topbar" style={{ gap: 16 }}>
             <div className="brand">hanna-malash</div>
 
-            <div className="nav-desktop" style={{ alignItems: "center" }}>
-                <NavIsland items={items} measureKey={lang} />
+            {/* Desktop nav */}
+            <div className="nav-desktop" style={{ display: "flex", alignItems: "center" }}>
+                <NavIsland
+                    items={routes.map((r) => ({ key: r.key, path: r.path, label: t(r.labelKey) }))}
+                />
             </div>
 
             <div className="controls">
@@ -31,15 +29,15 @@ export function TopBar({ onOpenMobileMenu }) {
                     options={[{ value: "en", label: "EN" }, { value: "ru", label: "RU" }]}
                     onChange={setLang}
                 />
-                <Toggle
-                    label={t("theme")}
+
+                {/* Theme: classic sun/moon toggle */}
+                <ThemeSwitch
                     value={theme}
-                    options={[
-                        { value: "light", label: t("light") },
-                        { value: "dark", label: t("dark") },
-                    ]}
                     onChange={setTheme}
+                    ariaLabel={t("theme")}
                 />
+
+                {/* Mobile menu button */}
                 <div className="nav-mobile">
                     <IconButton ariaLabel={t("menu")} onClick={onOpenMobileMenu}>
                         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
