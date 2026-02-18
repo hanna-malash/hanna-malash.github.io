@@ -240,3 +240,75 @@ select{
     flex-direction: column;
     gap: 8px;
 }
+
+/* ===== Theme switch (sun/moon toggle) ===== */
+.theme-switch{
+    position: relative;
+    width: 56px;
+    height: 36px;
+    border: 1px solid color-mix(in srgb, var(--md-outline) 28%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--md-surface-container) 65%, var(--md-surface));
+    box-shadow: var(--md-elev-1);
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow .15s ease, transform .15s ease, background .15s ease;
+}
+.theme-switch:hover{
+    box-shadow: var(--md-elev-2);
+    transform: translateY(-1px);
+}
+.theme-switch:active{
+    transform: translateY(0);
+}
+.theme-switch__track{
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+}
+.theme-switch__thumb{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--md-surface);
+    border: 1px solid color-mix(in srgb, var(--md-outline) 22%, transparent);
+    box-shadow: 0 2px 10px rgba(0,0,0,.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .18s ease;
+    will-change: transform;
+}
+.theme-switch.is-dark .theme-switch__thumb{
+    transform: translateX(20px);
+}
+.theme-switch__icon{
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-on-surface-variant);
+    transition: opacity .15s ease, transform .15s ease;
+}
+.theme-switch__icon--sun{
+    opacity: 1;
+    transform: scale(1);
+}
+.theme-switch.is-dark .theme-switch__icon--sun{
+    opacity: 0;
+    transform: scale(.85);
+}
+.theme-switch__icon--moon{
+    opacity: 0;
+    transform: scale(.85);
+}
+.theme-switch.is-dark .theme-switch__icon--moon{
+    opacity: 1;
+    transform: scale(1);
+}

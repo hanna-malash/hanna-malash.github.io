@@ -4,24 +4,23 @@ import { useI18n } from "../providers/I18nContext"
 import { useTheme } from "../providers/ThemeContext"
 import { IconButton } from "../../shared/ui/IconButton"
 import { Toggle } from "../../shared/ui/Toggle"
+import { ThemeSwitch } from "../../shared/ui/ThemeSwitch"
 import { useNavigate } from "react-router-dom"
 
 export function MobileMenu({ isOpen, onClose }) {
-    const navigate = useNavigate()
     const { lang, setLang, t } = useI18n()
     const { theme, setTheme } = useTheme()
+    const navigate = useNavigate()
 
-    // Keep it mounted for CSS transitions; control via className.
+    function go(path) {
+        navigate(path)
+        onClose()
+    }
+
     return (
-        <div className={`drawer${isOpen ? " is-open" : ""}`} aria-hidden={!isOpen}>
+        <div className={"drawer" + (isOpen ? " is-open" : "")} role="dialog" aria-modal="true">
             <div className="drawer__backdrop" onClick={onClose} />
-            <div
-                className="drawer__panel"
-                role="dialog"
-                aria-modal="true"
-                aria-label={t("menu")}
-                onClick={(e) => e.stopPropagation()}
-            >
+            <div className="drawer__panel" onClick={(e) => e.stopPropagation()}>
                 <div className="drawer__top">
                     <div className="drawer__title">{t("menu")}</div>
                     <IconButton ariaLabel={t("close")} onClick={onClose}>
@@ -37,10 +36,7 @@ export function MobileMenu({ isOpen, onClose }) {
                             key={r.key}
                             type="button"
                             className="drawer__link"
-                            onClick={() => {
-                                navigate(r.path)
-                                onClose()
-                            }}
+                            onClick={() => go(r.path)}
                         >
                             {t(r.labelKey)}
                         </button>
@@ -54,15 +50,13 @@ export function MobileMenu({ isOpen, onClose }) {
                         options={[{ value: "en", label: "EN" }, { value: "ru", label: "RU" }]}
                         onChange={setLang}
                     />
-                    <Toggle
-                        label={t("theme")}
-                        value={theme}
-                        options={[
-                            { value: "light", label: t("light") },
-                            { value: "dark", label: t("dark") },
-                        ]}
-                        onChange={setTheme}
-                    />
+
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+                        <div style={{ fontSize: 12, color: "var(--md-on-surface-variant)" }}>
+                            {t("theme")}
+                        </div>
+                        <ThemeSwitch value={theme} onChange={setTheme} ariaLabel={t("theme")} />
+                    </div>
                 </div>
             </div>
         </div>
