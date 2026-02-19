@@ -19,6 +19,15 @@ export const projectsData = {
             ],
         },
         {
+            id: "ess-life-satisfaction-poland",
+            title: "ESS: Life satisfaction in Poland",
+            description: "Analysis of determinants of life satisfaction in Poland using European Social Survey (ESS) data: cleaning, recoding, exploratory analysis, and a binary logit model.",
+            tags: ["R", "ESS", "Logit", "Data cleaning"],
+            links: [
+                { label: "Repo", href: "https://github.com/hanna-malash/ess-life-satisfaction-poland" },
+            ],
+        },
+        {
             id: "econometrics",
             title: "Econometrics: Unemployment model (Czech Republic)",
             description: "Econometrics project: model building and validation + 2-year forecast based on Eurostat data.",
@@ -45,6 +54,15 @@ export const projectsData = {
             tags: ["React", "Frontend", "Charts (план)"],
             links: [
                 { label: "Repo", href: "https://github.com/hanna-malash" },
+            ],
+        },
+        {
+            id: "ess-life-satisfaction-poland",
+            title: "ESS: удовлетворенность жизнью в Польше",
+            description: "Анализ факторов удовлетворенности жизнью в Польше по данным European Social Survey (ESS): очистка данных, рекодирование, исследовательский анализ и бинарная логит-модель.",
+            tags: ["R", "ESS", "Логит", "Очистка данных"],
+            links: [
+                { label: "Repo", href: "https://github.com/hanna-malash/ess-life-satisfaction-poland" },
             ],
         },
         {
