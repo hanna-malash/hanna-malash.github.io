@@ -15,6 +15,12 @@ export const translations = {
         navContact: "Contact",
         menu: "Menu",
         close: "Close",
+
+        projects: {
+            pageTitle: "Projects",
+            pageSubtitle: "Selected technical and analytical projects."
+        },
+
         about: {
             heroTitle: "About",
             tagline: `Entry-level professional with hands-on experience in financial data validation,
@@ -109,6 +115,7 @@ and technical roles.`,
             },
         },
     },
+
     ru: {
         title: "Привет",
         subtitle: "Это мой личный сайт, и сейчас он находится в разработке.",
@@ -125,6 +132,12 @@ and technical roles.`,
         navContact: "Контакты",
         menu: "Меню",
         close: "Закрыть",
+
+        projects: {
+            pageTitle: "Проекты",
+            pageSubtitle: "Выбранные технические и аналитические проекты."
+        },
+
         about: {
             heroTitle: "Обо мне",
             tagline: `Начинающий специалист с практическим опытом в валидации финансовых данных,
