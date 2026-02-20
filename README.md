@@ -42,7 +42,9 @@ A personal portfolio website built with React + Vite and deployed on GitHub Page
 | Vite | ^7.2.4 | Build tool and dev server |
 | React Router | ^7.13.0 | Routing (HashRouter) |
 | ESLint | ^9.39.1 | Code quality |
-| gh-pages | ^6.3.0 | GitHub Pages deployment |
+| Husky | 9.x | Git hooks (pre-commit / pre-push) |
+| lint-staged | ^16.2.7 | Run linters on staged files |
+| GitHub Actions | — | CI + GitHub Pages deployment |
 
 ---
 
@@ -149,28 +151,21 @@ npm run lint
 
 ## Deployment
 
-This project uses GitHub Pages with HashRouter for proper routing.
+This project is deployed to **GitHub Pages** automatically via **GitHub Actions**.
 
-### Deploy to GitHub Pages
+### How it works
 
-After merging changes to `main`, run:
+- **Pull requests to `main`**: CI runs (install, lint, build)
+- **Push/merge to `main`**: CI runs and the site is deployed to GitHub Pages
 
-```bash
-git switch main
-git pull
-npm run deploy
-```
+No manual deploy commands are required.
 
-**What `npm run deploy` does:**
-1. Runs `npm run build` (creates the `dist/` folder)
-2. Pushes the build to the `gh-pages` branch
-3. GitHub Pages automatically deploys your site
+### GitHub Pages settings
 
-### GitHub Settings
+In the repository settings:
 
-Make sure your repository settings (Settings, Pages) have:
-- **Source**: Deploy from branch
-- **Branch**: `gh-pages` / `/(root)`
+- **Settings → Pages**
+- **Build and deployment → Source: GitHub Actions**
 
 ---
 
