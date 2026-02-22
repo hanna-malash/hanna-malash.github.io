@@ -21,8 +21,15 @@ export function ContactPage() {
         }
     }
 
+    const linkStyle = {
+        color: "var(--md-primary)",
+        textDecoration: "none",
+        fontWeight: 700,
+    }
+
     return (
         <div style={{ paddingTop: 24 }}>
+            {/* Top card */}
             <SectionCard title={lang === "ru" ? "Контакты" : "Contact"}>
                 <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
                     {lang === "ru"
@@ -33,6 +40,7 @@ export function ContactPage() {
 
             <div style={{ height: 16 }} />
 
+            {/* Grid */}
             <div
                 style={{
                     display: "grid",
@@ -41,64 +49,103 @@ export function ContactPage() {
                     alignItems: "stretch",
                 }}
             >
+                {/* Email card */}
                 <SectionCard title="Email">
-                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                        <a
-                            href={`mailto:${email}`}
-                            style={{ textDecoration: "none", fontWeight: 600 }}
-                        >
-                            {email}
-                        </a>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            minHeight: 140,
+                        }}
+                    >
+                        <div style={{ display: "grid", gap: 8 }}>
+                            <div style={{ fontWeight: 700 }}>{email}</div>
+                            <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                                {lang === "ru"
+                                    ? "Используй кнопку ниже, чтобы скопировать email."
+                                    : "Use the button below to copy the email."}
+                            </div>
+                        </div>
 
-                        <button
-                            onClick={handleCopyEmail}
-                            style={{
-                                background: "none",
-                                border: "none",
-                                padding: 0,
-                                cursor: "pointer",
-                                textAlign: "left",
-                                color: "var(--md-primary)",
-                                fontWeight: 500,
-                            }}
-                        >
-                            {copied
-                                ? lang === "ru"
-                                    ? "Email скопирован"
-                                    : "Email copied"
-                                : lang === "ru"
-                                    ? "Скопировать email"
-                                    : "Copy email"}
-                        </button>
+                        <div style={{ marginTop: 12 }}>
+                            <button
+                                type="button"
+                                onClick={handleCopyEmail}
+                                style={{
+                                    all: "unset",
+                                    ...linkStyle,
+                                    cursor: "pointer",
+                                }}
+                            >
+                                {copied
+                                    ? lang === "ru"
+                                        ? "Email скопирован"
+                                        : "Email copied"
+                                    : lang === "ru"
+                                        ? "Скопировать email"
+                                        : "Copy email"}
+                            </button>
+                        </div>
                     </div>
                 </SectionCard>
 
+                {/* LinkedIn card */}
                 <SectionCard title="LinkedIn">
-                    <a
-                        href={linkedInUrl}
-                        target="_blank"
-                        rel="noreferrer"
+                    <div
                         style={{
-                            textDecoration: "none",
-                            fontWeight: 600,
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            minHeight: 140,
                         }}
                     >
-                        {lang === "ru" ? "Открыть профиль" : "Open profile"}
-                    </a>
+                        <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                            {lang === "ru"
+                                ? "Профиль с опытом, образованием и контактами."
+                                : "Profile with experience, education and details."}
+                        </div>
+
+                        <div style={{ marginTop: 12 }}>
+                            <a
+                                href={linkedInUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                style={linkStyle}
+                            >
+                                {lang === "ru" ? "Открыть профиль" : "Open profile"}
+                            </a>
+                        </div>
+                    </div>
                 </SectionCard>
 
+                {/* GitHub card */}
                 <SectionCard title="GitHub">
-                    <a
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
+                    <div
                         style={{
-                            textDecoration: "none",
-                            fontWeight: 600,
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            minHeight: 140,
                         }}
                     >
-                        @hanna-malash
-                    </a>
+                        <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                            {lang === "ru"
+                                ? "Репозитории, проекты и код."
+                                : "Repositories, projects and code."}
+                        </div>
+
+                        <div style={{ marginTop: 12 }}>
+                            <a
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                style={linkStyle}
+                            >
+                                {lang === "ru" ? "Открыть GitHub" : "Open GitHub"}
+                            </a>
+                        </div>
+                    </div>
                 </SectionCard>
             </div>
         </div>
