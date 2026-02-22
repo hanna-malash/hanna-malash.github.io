@@ -21,6 +21,21 @@ export const translations = {
             pageSubtitle: "Selected technical and analytical projects."
         },
 
+        contact: {
+            pageTitle: "Contact",
+            pageSubtitle: "Open to internships, junior roles and collaboration.",
+            emailTitle: "Email",
+            emailHint: "Use the button below to copy the email.",
+            copyEmail: "Copy email",
+            copied: "Email copied",
+            linkedInTitle: "LinkedIn",
+            linkedInText: "Profile with experience, education and details.",
+            linkedInLink: "Open profile",
+            githubTitle: "GitHub",
+            githubText: "Repositories, projects and code.",
+            githubLink: "Open GitHub",
+        },
+
         about: {
             heroTitle: "About",
             tagline: `Entry-level professional with hands-on experience in financial data validation,
@@ -136,6 +151,21 @@ and technical roles.`,
         projects: {
             pageTitle: "Проекты",
             pageSubtitle: "Выбранные технические и аналитические проекты."
+        },
+
+        contact: {
+            pageTitle: "Контакты",
+            pageSubtitle: "Открыта к стажировкам, junior-позициям и сотрудничеству.",
+            emailTitle: "Email",
+            emailHint: "Используй кнопку ниже, чтобы скопировать email.",
+            copyEmail: "Скопировать email",
+            copied: "Email скопирован",
+            linkedInTitle: "LinkedIn",
+            linkedInText: "Профиль с опытом, образованием и контактами.",
+            linkedInLink: "Открыть профиль",
+            githubTitle: "GitHub",
+            githubText: "Репозитории, проекты и код.",
+            githubLink: "Открыть GitHub",
         },
 
         about: {
