@@ -1,9 +1,11 @@
 import React from "react"
 import { useI18n } from "../app/providers/I18nContext"
+import { translations } from "../shared/i18n/translations"
 import { SectionCard } from "../shared/ui/SectionCard"
 
 export function ContactPage() {
     const { lang } = useI18n()
+    const t = (translations[lang] || translations.en).contact
 
     const email = "malashav200105@gmail.com"
     const linkedInUrl = "https://www.linkedin.com/in/hanna-malash-65aa8b2ba/"
@@ -21,26 +23,18 @@ export function ContactPage() {
         }
     }
 
-    const linkStyle = {
-        color: "var(--md-primary)",
-        textDecoration: "none",
-        fontWeight: 700,
-    }
+    const linkStyle = { color: "var(--md-primary)", textDecoration: "none", fontWeight: 700 }
 
     return (
         <div style={{ paddingTop: 24 }}>
-            {/* Top card */}
-            <SectionCard title={lang === "ru" ? "Контакты" : "Contact"}>
+            <SectionCard title={t.pageTitle}>
                 <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
-                    {lang === "ru"
-                        ? "Открыта к стажировкам, junior-позициям и сотрудничеству."
-                        : "Open to internships, junior roles and collaboration."}
+                    {t.pageSubtitle}
                 </div>
             </SectionCard>
 
             <div style={{ height: 16 }} />
 
-            {/* Grid */}
             <div
                 style={{
                     display: "grid",
@@ -49,8 +43,7 @@ export function ContactPage() {
                     alignItems: "stretch",
                 }}
             >
-                {/* Email card */}
-                <SectionCard title="Email">
+                <SectionCard title={t.emailTitle}>
                     <div
                         style={{
                             display: "flex",
@@ -62,9 +55,7 @@ export function ContactPage() {
                         <div style={{ display: "grid", gap: 8 }}>
                             <div style={{ fontWeight: 700 }}>{email}</div>
                             <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
-                                {lang === "ru"
-                                    ? "Используй кнопку ниже, чтобы скопировать email."
-                                    : "Use the button below to copy the email."}
+                                {t.emailHint}
                             </div>
                         </div>
 
@@ -78,20 +69,13 @@ export function ContactPage() {
                                     cursor: "pointer",
                                 }}
                             >
-                                {copied
-                                    ? lang === "ru"
-                                        ? "Email скопирован"
-                                        : "Email copied"
-                                    : lang === "ru"
-                                        ? "Скопировать email"
-                                        : "Copy email"}
+                                {copied ? t.copied : t.copyEmail}
                             </button>
                         </div>
                     </div>
                 </SectionCard>
 
-                {/* LinkedIn card */}
-                <SectionCard title="LinkedIn">
+                <SectionCard title={t.linkedInTitle}>
                     <div
                         style={{
                             display: "flex",
@@ -101,26 +85,18 @@ export function ContactPage() {
                         }}
                     >
                         <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
-                            {lang === "ru"
-                                ? "Профиль с опытом, образованием и контактами."
-                                : "Profile with experience, education and details."}
+                            {t.linkedInText}
                         </div>
 
                         <div style={{ marginTop: 12 }}>
-                            <a
-                                href={linkedInUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                style={linkStyle}
-                            >
-                                {lang === "ru" ? "Открыть профиль" : "Open profile"}
+                            <a href={linkedInUrl} target="_blank" rel="noreferrer" style={linkStyle}>
+                                {t.linkedInLink}
                             </a>
                         </div>
                     </div>
                 </SectionCard>
 
-                {/* GitHub card */}
-                <SectionCard title="GitHub">
+                <SectionCard title={t.githubTitle}>
                     <div
                         style={{
                             display: "flex",
@@ -130,19 +106,12 @@ export function ContactPage() {
                         }}
                     >
                         <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
-                            {lang === "ru"
-                                ? "Репозитории, проекты и код."
-                                : "Repositories, projects and code."}
+                            {t.githubText}
                         </div>
 
                         <div style={{ marginTop: 12 }}>
-                            <a
-                                href={githubUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                style={linkStyle}
-                            >
-                                {lang === "ru" ? "Открыть GitHub" : "Open GitHub"}
+                            <a href={githubUrl} target="_blank" rel="noreferrer" style={linkStyle}>
+                                {t.githubLink}
                             </a>
                         </div>
                     </div>
