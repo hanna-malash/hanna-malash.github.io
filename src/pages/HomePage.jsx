@@ -5,8 +5,21 @@ import { SectionCard } from "../shared/ui/SectionCard"
 
 export function HomePage() {
     const { lang } = useI18n()
-    const dict = translations[lang] || translations.en
-    const t = dict.home
+    const base = translations.en || {}
+    const dict = translations[lang] || base
+    const t = dict.home || base.home || {
+        heroTitle: "Hanna Malash",
+        heroSubtitle: "Audit Intern at EY · 🎓 SGH student (Quantitative Methods)",
+        heroLead: "Transitioning from enterprise financial audit and structured data validation into data analytics and technical roles.",
+        auditTitle: "Audit mindset",
+        auditLead: "",
+        auditBullets: [],
+        dataTitle: "Data transition",
+        dataLead: "",
+        dataBullets: [],
+        wipTitle: "Work in progress",
+        wipText: "This website is evolving step by step alongside my professional development.",
+    }
 
     return (
         <div style={{ paddingTop: 24 }}>

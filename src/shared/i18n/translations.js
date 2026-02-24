@@ -21,6 +21,33 @@ export const translations = {
             pageSubtitle: "Selected technical and analytical projects."
         },
 
+        home: {
+            heroTitle: "Hanna Malash",
+            heroSubtitle: "Audit Intern at EY & SGH student (Quantitative Methods)",
+            heroLead: "Transitioning from enterprise financial audit and structured data validation into data analytics and technical roles.",
+            ctaProjects: "Projects",
+            ctaExperience: "Experience",
+            ctaContact: "Contact",
+            auditTitle: "Audit mindset",
+            auditLead: "Enterprise audit exposure with a focus on accuracy, evidence, and high-quality documentation.",
+            auditBullets: [
+                "Transaction testing and cut-off analysis",
+                "Inventory verification and balance testing",
+                "Reconciliations and structured data validation",
+                "Clear documentation and analytical rigor",
+            ],
+            dataTitle: "Data transition",
+            dataLead: "Building a technical foundation to move into data-focused roles.",
+            dataBullets: [
+                "Python fundamentals and automation mindset",
+                "AWS basics and cloud-first thinking",
+                "Strong Excel analysis and quality control background",
+                "Interest in BI, data workflows, and analytics engineering",
+            ],
+            wipTitle: "Work in progress",
+            wipText: "This website is evolving step by step alongside my professional development.",
+        },
+
         contact: {
             pageTitle: "Contact",
             pageSubtitle: "Open to internships, junior roles and collaboration.",
@@ -151,6 +178,33 @@ and technical roles.`,
         projects: {
             pageTitle: "Проекты",
             pageSubtitle: "Выбранные технические и аналитические проекты."
+        },
+
+        home: {
+            heroTitle: "Hanna Malash",
+            heroSubtitle: "Audit Intern в EY & Студент SGH (количественные методы)",
+            heroLead: "Переход из enterprise-аудита и валидации структурированных данных в data analytics и более технические роли.",
+            ctaProjects: "Проекты",
+            ctaExperience: "Опыт",
+            ctaContact: "Контакты",
+            auditTitle: "Audit mindset",
+            auditLead: "Опыт в аудите с фокусом на точность, доказательность и качество документации.",
+            auditBullets: [
+                "Тестирование транзакций и cut-off анализ",
+                "Инвентаризация и balance testing",
+                "Сверки и валидация структурированных данных",
+                "Понятная документация и аналитическая строгость",
+            ],
+            dataTitle: "Data transition",
+            dataLead: "Развиваю техническую базу для перехода в data-направления.",
+            dataBullets: [
+                "База Python и mindset на автоматизацию",
+                "Основы AWS и cloud-first мышление",
+                "Сильная база Excel, контроль качества и внимание к деталям",
+                "Интерес к BI, data workflows и analytics engineering",
+            ],
+            wipTitle: "Сайт в разработке",
+            wipText: "Я развиваю сайт шаг за шагом, параллельно с профессиональным ростом.",
         },
 
         contact: {
