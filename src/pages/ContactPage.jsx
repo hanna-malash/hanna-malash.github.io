@@ -23,51 +23,29 @@ export function ContactPage() {
         }
     }
 
-    const linkStyle = { color: "var(--md-primary)", textDecoration: "none", fontWeight: 700 }
-
     return (
-        <div style={{ paddingTop: 24 }}>
+        <div className="page">
             <SectionCard title={t.pageTitle}>
-                <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                <div className="content-muted">
                     {t.pageSubtitle}
                 </div>
             </SectionCard>
 
-            <div style={{ height: 16 }} />
-
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                    gap: 16,
-                    alignItems: "stretch",
-                }}
-            >
+            <div className="contact-grid">
                 <SectionCard title={t.emailTitle}>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "space-between",
-                            minHeight: 140,
-                        }}
-                    >
-                        <div style={{ display: "grid", gap: 8 }}>
-                            <div style={{ fontWeight: 700 }}>{email}</div>
-                            <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                    <div className="interactive-card">
+                        <div className="section-stack">
+                            <div className="section-heading">{email}</div>
+                            <div className="content-muted">
                                 {t.emailHint}
                             </div>
                         </div>
 
-                        <div style={{ marginTop: 12 }}>
+                        <div>
                             <button
                                 type="button"
                                 onClick={handleCopyEmail}
-                                style={{
-                                    all: "unset",
-                                    ...linkStyle,
-                                    cursor: "pointer",
-                                }}
+                                className="action-link"
                             >
                                 {copied ? t.copied : t.copyEmail}
                             </button>
@@ -76,20 +54,13 @@ export function ContactPage() {
                 </SectionCard>
 
                 <SectionCard title={t.linkedInTitle}>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "space-between",
-                            minHeight: 140,
-                        }}
-                    >
-                        <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                    <div className="interactive-card">
+                        <div className="content-muted">
                             {t.linkedInText}
                         </div>
 
-                        <div style={{ marginTop: 12 }}>
-                            <a href={linkedInUrl} target="_blank" rel="noreferrer" style={linkStyle}>
+                        <div>
+                            <a href={linkedInUrl} target="_blank" rel="noreferrer" className="action-link">
                                 {t.linkedInLink}
                             </a>
                         </div>
@@ -97,20 +68,13 @@ export function ContactPage() {
                 </SectionCard>
 
                 <SectionCard title={t.githubTitle}>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "space-between",
-                            minHeight: 140,
-                        }}
-                    >
-                        <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.6 }}>
+                    <div className="interactive-card">
+                        <div className="content-muted">
                             {t.githubText}
                         </div>
 
-                        <div style={{ marginTop: 12 }}>
-                            <a href={githubUrl} target="_blank" rel="noreferrer" style={linkStyle}>
+                        <div>
+                            <a href={githubUrl} target="_blank" rel="noreferrer" className="action-link">
                                 {t.githubLink}
                             </a>
                         </div>

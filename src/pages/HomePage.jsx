@@ -22,71 +22,45 @@ export function HomePage() {
     }
 
     return (
-        <div style={{ paddingTop: 24 }}>
-            {/* HERO */}
+        <div className="page">
             <SectionCard title="">
-                <div style={{ display: "grid", gap: 14, textAlign: "left" }}>
-                    <div
-                        style={{
-                            fontSize: 34,
-                            fontWeight: 900,
-                            letterSpacing: -0.6,
-                            lineHeight: 1.15,
-                        }}
-                    >
-                        {t.heroTitle}
-                    </div>
-
-                    <div style={{ fontWeight: 750 }}>
-                        {t.heroSubtitle}
-                    </div>
-
-                    <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.65 }}>
+                <div className="page__hero">
+                    <h1 className="page__title">{t.heroTitle}</h1>
+                    <p className="page__subtitle">{t.heroSubtitle}</p>
+                    <div className="page__lead">
                         {t.heroLead}
                     </div>
                 </div>
             </SectionCard>
 
-            <div style={{ height: 16 }} />
-
-            {/* AUDIT */}
             <SectionCard title={t.auditTitle}>
-                <div style={{ display: "grid", gap: 12 }}>
-                    <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.65 }}>
+                <div className="section-stack">
+                    <div className="content-muted">
                         {t.auditLead}
                     </div>
-                    <ul style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 10 }}>
+                    <ul className="bullet-list">
                         {(t.auditBullets || []).map((item) => (
-                            <li key={item} style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.65 }}>
-                                {item}
-                            </li>
+                            <li key={item}>{item}</li>
                         ))}
                     </ul>
                 </div>
             </SectionCard>
 
-            <div style={{ height: 16 }} />
-
-            {/* DATA */}
             <SectionCard title={t.dataTitle}>
-                <div style={{ display: "grid", gap: 12 }}>
-                    <div style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.65 }}>
+                <div className="section-stack">
+                    <div className="content-muted">
                         {t.dataLead}
                     </div>
-                    <ul style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 10 }}>
+                    <ul className="bullet-list">
                         {(t.dataBullets || []).map((item) => (
-                            <li key={item} style={{ color: "var(--md-on-surface-variant)", lineHeight: 1.65 }}>
-                                {item}
-                            </li>
+                            <li key={item}>{item}</li>
                         ))}
                     </ul>
                 </div>
             </SectionCard>
 
-            <div style={{ height: 16 }} />
-
             <SectionCard title={t.wipTitle} variant="warning">
-                <div style={{ lineHeight: 1.65 }}>
+                <div className="content-muted">
                     {t.wipText}
                 </div>
             </SectionCard>

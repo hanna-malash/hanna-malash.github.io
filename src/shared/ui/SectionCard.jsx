@@ -1,29 +1,26 @@
-export function SectionCard({ title, children, variant = "default" }) {
-    const isWarning = variant === "warning"
+import { Card } from "./Card"
 
-    const warningStyles = {
-        backgroundColor: "rgba(240, 173, 78)",
-        border: "rgba(240, 173, 78)",
-        color: "#000",
-    }
+export function SectionCard({ title, children, variant = "default", className = "" }) {
+    const sectionClassName = [
+        "section-card",
+        className,
+    ].filter(Boolean).join(" ")
+
+    const cardClassName = variant === "warning"
+        ? "card--warning"
+        : ""
 
     return (
-        <div
-            className="card"
-            style={isWarning ? warningStyles : undefined}
-        >
+        <Card className={cardClassName}>
+            <div className={sectionClassName}>
             {title && (
-                <div
-                    style={{
-                        fontWeight: 700,
-                        marginBottom: 10,
-                    }}
-                >
+                <div className="section-card__title">
                     {title}
                 </div>
             )}
 
             {children}
-        </div>
+            </div>
+        </Card>
     )
 }
