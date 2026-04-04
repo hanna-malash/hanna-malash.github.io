@@ -18,13 +18,8 @@ export function ThemeSwitch({ value, onChange, ariaLabel }) {
             <span className="theme-switch__thumb" aria-hidden="true">
                 <span className="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">
                     <svg width="16" height="16" viewBox="0 0 24 24">
-                        <path
-                            d="M12 18a6 6 0 1 1 0-12a6 6 0 0 1 0 12Zm0-16v2m0 16v2m10-10h-2M4 12H2m17.07-7.07l-1.41 1.41M6.34 17.66l-1.41 1.41m0-12.02l1.41 1.41m12.02 12.02l1.41 1.41"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                        />
+                        <circle cx="12" cy="12" r="4.25" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                        <path d="M12 2.75v2.1M12 19.15v2.1M21.25 12h-2.1M4.85 12h-2.1M18.54 5.46l-1.49 1.49M6.95 17.05l-1.49 1.49M18.54 18.54l-1.49-1.49M6.95 6.95L5.46 5.46" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                     </svg>
                 </span>
                 <span className="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">
