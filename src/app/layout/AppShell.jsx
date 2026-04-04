@@ -5,15 +5,23 @@ import { MobileMenu } from "./MobileMenu"
 
 export function AppShell() {
     const [isMobileOpen, setIsMobileOpen] = React.useState(false)
+    const mobileMenuButtonRef = React.useRef(null)
 
     return (
         <div className="app-root">
             <div className="app-header">
                 <div className="container">
-                    <TopBar onOpenMobileMenu={() => setIsMobileOpen(true)} />
+                    <TopBar
+                        onOpenMobileMenu={() => setIsMobileOpen(true)}
+                        mobileMenuButtonRef={mobileMenuButtonRef}
+                    />
                 </div>
             </div>
-            <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
+            <MobileMenu
+                isOpen={isMobileOpen}
+                onClose={() => setIsMobileOpen(false)}
+                returnFocusRef={mobileMenuButtonRef}
+            />
 
             <main className="app-content">
                 <div className="container">

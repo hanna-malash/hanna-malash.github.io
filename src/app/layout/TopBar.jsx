@@ -7,7 +7,7 @@ import { IconButton } from "../../shared/ui/IconButton"
 import { NavIsland } from "../../shared/ui/NavIsland"
 import { ThemeSwitch } from "../../shared/ui/ThemeSwitch"
 
-export function TopBar({ onOpenMobileMenu }) {
+export function TopBar({ onOpenMobileMenu, mobileMenuButtonRef }) {
     const { lang, setLang, t } = useI18n()
     const { theme, setTheme } = useTheme()
 
@@ -39,7 +39,11 @@ export function TopBar({ onOpenMobileMenu }) {
 
                 {/* Mobile menu button */}
                 <div className="nav-mobile">
-                    <IconButton ariaLabel={t("menu")} onClick={onOpenMobileMenu}>
+                    <IconButton
+                        ariaLabel={t("menu")}
+                        onClick={onOpenMobileMenu}
+                        buttonRef={mobileMenuButtonRef}
+                    >
                         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
                             <path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                         </svg>

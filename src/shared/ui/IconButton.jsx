@@ -1,10 +1,11 @@
-export function IconButton({ ariaLabel, onClick, children }) {
+export function IconButton({ ariaLabel, onClick, children, buttonRef, className = "" }) {
     return (
         <button
             type="button"
             aria-label={ariaLabel}
             onClick={onClick}
-            className="icon-button"
+            ref={buttonRef}
+            className={["icon-button", className].filter(Boolean).join(" ")}
         >
             {children}
         </button>
